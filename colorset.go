@@ -11,14 +11,14 @@ import (
 //
 // Supported colors correspond to codes 30 through 37:
 //
-//   30: Black
-//   31: Red
-//   32: Green
-//   33: Yellow
-//   34: Blue
-//   35: Magenta
-//   36: Cyan
-//   37: White
+//	30: Black
+//	31: Red
+//	32: Green
+//	33: Yellow
+//	34: Blue
+//	35: Magenta
+//	36: Cyan
+//	37: White
 //
 // Example usage:
 //
@@ -46,16 +46,15 @@ func ColorRand() string {
 //	fmt.Print(colorset.ColorSet("g"), "This is green text", colorset.ColorReset())
 func ColorSet(color string) string {
 	colors := map[string]string{
-		"r":   "\033[031m",
-		"g":   "\033[032m",
-		"y":   "\033[033m",
-		"b":   "\033[034m",
-		"p":   "\033[035m",
-		"c":   "\033[036m",
-		"w":   "\033[037m",
+		"r": "\033[031m",
+		"g": "\033[032m",
+		"y": "\033[033m",
+		"b": "\033[034m",
+		"p": "\033[035m",
+		"c": "\033[036m",
+		"w": "\033[037m",
 		"_": "\033[0m",
 	}
-
 	return colors[color] // Directly return the color code
 }
 
