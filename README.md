@@ -3,7 +3,6 @@ Useful for adding colors to terminal output in CLI applications.
 
 ---
 
-
 ## 📦 Installation
 
 To use this package in your Go project:
@@ -22,21 +21,21 @@ Make sure you have Go modules enabled.
 
 Returns a random ANSI foreground color code from the basic 8-color palette (30–37):
 
-
-| Code | Color    |
-|------|----------|
-| 30   | Black    |
-| 31   | Red      |
-| 32   | Green    |
-| 33   | Yellow   |
-| 34   | Blue     |
-| 35   | Magenta  |
-| 36   | Cyan     |
-| 37   | White    |
+| Code | Color   |
+| ---- | ------- |
+| 30   | Black   |
+| 31   | Red     |
+| 32   | Green   |
+| 33   | Yellow  |
+| 34   | Blue    |
+| 35   | Magenta |
+| 36   | Cyan    |
+| 37   | White   |
 
 Useful when you're in a hurry and don't care about specific colors, but just want to visually separate outputs in the terminal.
 
 Example:
+
 ```go
 fmt.Printf("%sRandom colored text%s\n", cs.ColorRand(), cs.ColorReset())
 ```
@@ -47,18 +46,19 @@ fmt.Printf("%sRandom colored text%s\n", cs.ColorRand(), cs.ColorReset())
 
 Returns a specific ANSI foreground color escape sequence based on a short identifier.
 
-| Code | Color        | ANSI Code     |
-|------|--------------|---------------|
-| `"r"` | Red          | `\x1b[31m`    |
-| `"g"` | Green        | `\x1b[32m`    |
-| `"y"` | Yellow       | `\x1b[33m`    |
-| `"b"` | Blue         | `\x1b[34m`    |
-| `"p"` | Magenta      | `\x1b[35m`    |
-| `"c"` | Cyan         | `\x1b[36m`    |
-| `"w"` | White        | `\x1b[37m`    |
-| `"_"` | Reset        | `\x1b[0m`    |
+| Code  | Color   | ANSI Code  |
+| ----- | ------- | ---------- |
+| `"r"` | Red     | `\x1b[31m` |
+| `"g"` | Green   | `\x1b[32m` |
+| `"y"` | Yellow  | `\x1b[33m` |
+| `"b"` | Blue    | `\x1b[34m` |
+| `"p"` | Magenta | `\x1b[35m` |
+| `"c"` | Cyan    | `\x1b[36m` |
+| `"w"` | White   | `\x1b[37m` |
+| `"_"` | Reset   | `\x1b[0m`  |
 
 Example:
+
 ```go
 fmt.Println(cs.ColorSet("g") + "This is green text" + cs.ColorReset())
 ```
@@ -72,6 +72,7 @@ Resets all terminal formatting (including color). Use after applying any color e
 Equivalent to `cs.ColorSet("_")`.
 
 Example:
+
 ```go
 fmt.Println(cs.ColorSet("r") + "Red Text" + cs.ColorReset())
 ```
@@ -106,6 +107,7 @@ Define shortcuts at the top of your file:
 ```go
 var (
     crd = cs.ColorRand()  // random color from 30 to 37
+    _ = crd
 
     cr = cs.ColorSet("r")  // red output
     _ = cr
@@ -125,7 +127,9 @@ var (
     _ = cres
 )
 ```
-or use `ColorSet("_")` as reset
+
+or use `ColorReset()`:
+
 ```go
 var (
 	cres = cs.ColorReset()
