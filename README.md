@@ -11,6 +11,16 @@ To use this package in your Go project:
 go get github.com/swansestudio/colorset
 ```
 
+then import:
+```go
+import "github.com/swansestudio/colorset"
+```
+or, if you'd prefer using as shorthand variables:
+
+```go
+import cs "github.com/swansestudio/colorset"
+```
+
 Make sure you have Go modules enabled.
 
 ---
@@ -105,6 +115,10 @@ func main() {
 Define shortcuts at the top of your file:
 
 ```go
+
+import cs "github.com/swansestudio/colorset"
+
+
 var (
     crd = cs.ColorRand()  // random color from 30 to 37
     _ = crd
